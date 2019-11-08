@@ -18,11 +18,11 @@ import PropTypes from 'prop-types';
  *   <InstantSearch
  *     appId="latency"
  *     apiKey="6be0576ff61c053d5f9a3225e2a90f76"
- *     indexName="ikea"
+ *     indexName="instant_search"
  *   >
  *     <Configure hitsPerPage={5} />
  *     <SearchBox />
- *     <Index indexName="ikea">
+ *     <Index indexName="instant_search">
  *       <Hits />
  *     </Index>
  *     <Index indexName="bestbuy">
@@ -48,7 +48,7 @@ class Index extends Component {
 
   componentWillMount() {
     this.context.ais.onSearchParameters(
-      this.getSearchParameters,
+      this.getSearchParameters.bind(this),
       this.getChildContext(),
       this.props
     );
